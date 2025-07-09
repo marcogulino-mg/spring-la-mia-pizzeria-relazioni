@@ -1,4 +1,4 @@
-package org.java.exercise.pizzeria.spring_la_mia_pizzeria_crud.controller;
+package org.java.exercise.pizzeria.spring_la_mia_pizzeria_relazioni.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

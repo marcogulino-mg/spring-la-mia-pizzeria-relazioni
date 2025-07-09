@@ -1,8 +1,9 @@
-package org.java.exercise.pizzeria.spring_la_mia_pizzeria_crud.controller;
+package org.java.exercise.pizzeria.spring_la_mia_pizzeria_relazioni.controller;
 
 import java.util.List;
-import org.java.exercise.pizzeria.spring_la_mia_pizzeria_crud.model.Pizza;
-import org.java.exercise.pizzeria.spring_la_mia_pizzeria_crud.repository.PizzaRepository;
+
+import org.java.exercise.pizzeria.spring_la_mia_pizzeria_relazioni.model.Pizza;
+import org.java.exercise.pizzeria.spring_la_mia_pizzeria_relazioni.repository.PizzaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
