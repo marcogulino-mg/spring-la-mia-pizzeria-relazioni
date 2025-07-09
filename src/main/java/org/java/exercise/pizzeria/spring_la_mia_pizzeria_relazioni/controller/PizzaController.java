@@ -2,6 +2,7 @@ package org.java.exercise.pizzeria.spring_la_mia_pizzeria_relazioni.controller;
 
 import java.util.List;
 
+import org.java.exercise.pizzeria.spring_la_mia_pizzeria_relazioni.model.Discount;
 import org.java.exercise.pizzeria.spring_la_mia_pizzeria_relazioni.model.Pizza;
 import org.java.exercise.pizzeria.spring_la_mia_pizzeria_relazioni.repository.PizzaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -87,6 +88,15 @@ public class PizzaController {
     public String delete(@PathVariable("id") int id) {
         repository.deleteById(id);
         return "redirect:/pizzas";
+    }
+
+    @GetMapping("/{id}/discounts")
+    public String createDiscount(@PathVariable("id") int id, Model model) {
+        Discount discount = new Discount();
+        discount.setPizza(repository.findById(id).get());
+        model.addAttribute("discount", discount);
+
+        return "/discounts/create";
     }
 
 }
