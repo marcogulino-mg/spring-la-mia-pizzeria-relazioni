@@ -6,11 +6,38 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="container" th:fragment="pizza-infos(food)">
+    <section class="container" th:fragment="pizza-infos(food)">
       <h2 th:text="${food.name}"></h2>
       <img th:src="${food.photo_url}" alt="${food.name}" />
       <p th:text="${food.description}"></p>
       <h5 th:text="|Prezzo: ${food.price} €|"></h5>
-    </div>
+    </section>
+
+    <section class="container" th:fragment="discount-table(food)">
+      <h2>Offerte Speciali</h2>
+      <div class="alert alert-warning" role="alert">
+        <h6 th:unless="${food.discounts.size() > 0}">
+          Nessuna Offerta Speciale Disponibile
+        </h6>
+      </div>
+      <table class="table" th:if="${food.discounts.size() > 0}">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Data Inizio</th>
+            <th scope="col">Data Fine</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="discount : ${food.discounts}">
+            <th scope="row" th:text="${discount.id}"></th>
+            <td th:text="${discount.title}"></td>
+            <td th:text="${discount.startDate}"></td>
+            <td th:text="${discount.endDate}"></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
   </body>
 </html>
