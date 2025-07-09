@@ -1,10 +1,10 @@
-package org.java.lesson.exercise.spring_la_mia_pizzeria_relazioni;
+package org.java.exercise.pizzeria.spring_la_mia_pizzeria_crud;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringLaMiaPizzeriaRelazioniApplicationTests {
+class SpringLaMiaPizzeriaCrudApplicationTests {
 
 	@Test
 	void contextLoads() {
