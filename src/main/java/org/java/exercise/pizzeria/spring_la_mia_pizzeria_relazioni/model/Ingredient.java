@@ -26,4 +26,30 @@ public class Ingredient {
     // INFO: Relationships
     @ManyToMany(mappedBy = "ingredients")
     private List<Pizza> pizzas;
+
+    // Methods
+    // INFO: Getters and Setters
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Pizza> getPizzas() {
+        return pizzas;
+    }
+
+    public void setPizzas(List<Pizza> pizzas) {
+        this.pizzas = pizzas;
+    }
 }
