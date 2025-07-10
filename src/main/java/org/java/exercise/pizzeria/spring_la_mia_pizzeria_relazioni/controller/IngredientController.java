@@ -1,6 +1,9 @@
 package org.java.exercise.pizzeria.spring_la_mia_pizzeria_relazioni.controller;
 
+import java.util.List;
+
 import org.java.exercise.pizzeria.spring_la_mia_pizzeria_relazioni.model.Ingredient;
+import org.java.exercise.pizzeria.spring_la_mia_pizzeria_relazioni.model.Pizza;
 import org.java.exercise.pizzeria.spring_la_mia_pizzeria_relazioni.repository.IngredientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,7 +24,7 @@ public class IngredientController {
     private IngredientRepository repository;
 
     // CRUD
-    // INFO: Create
+    // INFO: CREATE
     @GetMapping("/create")
     public String create(Model model) {
         model.addAttribute("ingredient", new Ingredient());
@@ -37,5 +40,13 @@ public class IngredientController {
 
         repository.save(formIngredient);
         return "redirect:/ingredients";
+    }
+
+    // INFO: READ
+    @GetMapping
+    public String index(Model model) {
+        List<Ingredient> ingredients = repository.findAll();
+        model.addAttribute("ingredients", ingredients);
+        return "/ingredients/index";
     }
 }
