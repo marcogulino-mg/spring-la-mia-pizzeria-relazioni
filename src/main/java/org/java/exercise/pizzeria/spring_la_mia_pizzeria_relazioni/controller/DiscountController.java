@@ -26,7 +26,7 @@ public class DiscountController {
     public String store(@Valid @ModelAttribute("discount") Discount formDiscount,
             BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
-            return "/discounts/create-or-edit";
+            return "discounts/create-or-edit";
         }
 
         repository.save(formDiscount);
@@ -38,14 +38,14 @@ public class DiscountController {
     public String edit(@PathVariable("id") int id, Model model) {
         model.addAttribute("discount", repository.findById(id).get());
         model.addAttribute("edit", true);
-        return "/discounts/create-or-edit";
+        return "discounts/create-or-edit";
     }
 
     @PostMapping("/edit/{id}")
     public String update(@Valid @ModelAttribute("discount") Discount formDiscount,
             BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
-            return "/discounts/create-or-edit";
+            return "discounts/create-or-edit";
         }
 
         repository.save(formDiscount);
