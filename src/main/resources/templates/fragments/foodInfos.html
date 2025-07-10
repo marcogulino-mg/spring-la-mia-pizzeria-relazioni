@@ -14,11 +14,13 @@
     </section>
 
     <section class="container" th:fragment="discount-table(food)">
-      <h2>Offerte Speciali</h2>
-      <div class="alert alert-warning" role="alert">
-        <h6 th:unless="${food.discounts.size() > 0}">
-          Nessuna Offerta Speciale Disponibile
-        </h6>
+      <h2 th:text="|Offerte speciali per + ${food.name}|"></h2>
+      <div
+        th:unless="${food.discounts.size() > 0}"
+        class="alert alert-warning"
+        role="alert"
+      >
+        <h6>Nessuna Offerta Speciale Disponibile</h6>
       </div>
       <table class="table" th:if="${food.discounts.size() > 0}">
         <thead>
@@ -35,6 +37,70 @@
             <td th:text="${discount.title}"></td>
             <td th:text="${discount.startDate}"></td>
             <td th:text="${discount.endDate}"></td>
+            <td>
+              <a
+                class="btn btn-warning"
+                th:href="@{|/discounts/edit/${discount.id}|}"
+                >Modifica</a
+              >
+            </td>
+            <td>
+              <form
+                th:action="@{|/discounts/delete/${discount.id}|}"
+                method="post"
+              >
+                <button
+                  class="btn btn-danger"
+                  type="button"
+                  data-bs-toggle="modal"
+                  th:data-bs-target="'#delete-modal-' + ${discount.id}"
+                >
+                  Elimina
+                </button>
+
+                <!-- Modal -->
+                <div
+                  class="modal fade"
+                  th:id="'delete-modal-' + ${discount.id}"
+                  tabindex="-1"
+                >
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">
+                          Eliminazione Offerta
+                        </h1>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div class="modal-body">
+                        <h5>Confermi di voler rimuovere l'offerta?</h5>
+                      </div>
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-secondary"
+                          data-bs-dismiss="modal"
+                        >
+                          Annulla
+                        </button>
+                        <button
+                          class="btn btn-primary"
+                          type="submit"
+                          id="submitBtn"
+                        >
+                          Conferma
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </td>
           </tr>
         </tbody>
       </table>

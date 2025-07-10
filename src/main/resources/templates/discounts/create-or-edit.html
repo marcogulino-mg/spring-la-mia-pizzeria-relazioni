@@ -11,7 +11,7 @@
       <div class="container">
         <form
           id="discount-form"
-          th:action="@{/discounts/create}"
+          th:action="${edit} ? @{|/discounts/edit/${discount.id}|} : @{/discounts/create}"
           th:object="${discount}"
           method="POST"
         >

@@ -96,7 +96,7 @@ public class PizzaController {
         discount.setPizza(repository.findById(id).get());
         model.addAttribute("discount", discount);
 
-        return "/discounts/create";
+        return "/discounts/create-or-edit";
     }
 
 }
