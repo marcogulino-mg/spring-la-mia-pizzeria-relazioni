@@ -69,4 +69,11 @@ public class IngredientController {
         return "redirect:/ingredients";
     }
 
+    // INFO: DELETE
+    @PostMapping("/delete/{id}")
+
+    public String delete(@PathVariable("id") int id, Model model) {
+        repository.deleteById(id);
+        return "redirect:/ingredients";
+    }
 }
