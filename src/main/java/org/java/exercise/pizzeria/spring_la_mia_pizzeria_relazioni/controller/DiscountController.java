@@ -1,7 +1,6 @@
 package org.java.exercise.pizzeria.spring_la_mia_pizzeria_relazioni.controller;
 
 import org.java.exercise.pizzeria.spring_la_mia_pizzeria_relazioni.model.Discount;
-import org.java.exercise.pizzeria.spring_la_mia_pizzeria_relazioni.model.Pizza;
 import org.java.exercise.pizzeria.spring_la_mia_pizzeria_relazioni.repository.DiscountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
