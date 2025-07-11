@@ -10,6 +10,14 @@
       <h2 th:text="${food.name}"></h2>
       <img th:src="${food.photo_url}" alt="${food.name}" />
       <p th:text="${food.description}"></p>
+      <h4
+        th:unless="${food.ingredients.size} > 0"
+        th:text="'Ingredienti non disponibili'"
+      ></h4>
+      <h4 th:if="${food.ingredients.size} > 0" th:text="'Ingredienti'"></h4>
+      <ul th:each="ingredient : ${food.ingredients}">
+        <li th:text="${ingredient.name}"></li>
+      </ul>
       <h5 th:text="|Prezzo: ${food.price} €|"></h5>
     </section>
 

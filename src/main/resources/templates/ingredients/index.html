@@ -32,6 +32,13 @@
               <td th:text="${ingredient.pizzas.size}"></td>
               <td>
                 <a
+                  class="btn btn-primary"
+                  th:href="@{|/ingredients/${ingredient.id}|}"
+                  >Info</a
+                >
+              </td>
+              <td>
+                <a
                   class="btn btn-warning"
                   th:href="@{|/ingredients/edit/${ingredient.id}|}"
                   >Modifica</a

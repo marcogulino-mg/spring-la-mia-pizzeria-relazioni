@@ -51,6 +51,13 @@ public class IngredientController {
         return "ingredients/index";
     }
 
+    @GetMapping("/{id}")
+    public String show(@PathVariable("id") int id, Model model) {
+        Ingredient ingredient = repository.findById(id).get();
+        model.addAttribute("ingredient", ingredient);
+        return "ingredients/show";
+    }
+
     // INFO: UPDATE
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable("id") int id, Model model) {
