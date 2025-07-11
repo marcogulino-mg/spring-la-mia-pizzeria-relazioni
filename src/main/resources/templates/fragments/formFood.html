@@ -96,6 +96,21 @@
             </ul>
           </div>
         </div>
+        <div class="mb-5">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="ingredients-group"
+          />
+          <label
+            th:each="ingredient : ${ingredients}"
+            class="form-check-label"
+            for="checkDefault"
+            th:text="${ingredient.name}"
+          >
+          </label>
+        </div>
         <button type="submit" class="btn btn-primary">Aggiungi Pizza</button>
         <button type="reset" class="btn btn-warning">Reset Form</button>
       </form>

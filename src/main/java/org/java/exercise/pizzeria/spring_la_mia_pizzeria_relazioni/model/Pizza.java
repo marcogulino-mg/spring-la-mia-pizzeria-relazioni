@@ -79,6 +79,10 @@ public class Pizza {
         return discounts;
     }
 
+    public List<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
     // INFO: Setters
     public void setId(int id) {
         this.id = id;
@@ -102,6 +106,10 @@ public class Pizza {
 
     public void setDiscounts(List<Discount> discounts) {
         this.discounts = discounts;
+    }
+
+    public void setIngredients(List<Ingredient> ingredients) {
+        this.ingredients = ingredients;
     }
 
     // INFO: Others Methods
