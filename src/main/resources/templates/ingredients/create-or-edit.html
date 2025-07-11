@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <th:block
-      th:replace="~{ fragments/header :: generic-head(title='Aggiungi Ingrediente') }"
+      th:replace="~{ fragments/header :: generic-head(title=${edit} ? 'Modifica Ingredienti' : 'Aggiungi Ingrediente') }"
     ></th:block>
   </head>
   <body>
