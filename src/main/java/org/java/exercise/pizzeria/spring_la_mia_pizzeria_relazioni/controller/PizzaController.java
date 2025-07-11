@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.java.exercise.pizzeria.spring_la_mia_pizzeria_relazioni.model.Discount;
 import org.java.exercise.pizzeria.spring_la_mia_pizzeria_relazioni.model.Pizza;
+import org.java.exercise.pizzeria.spring_la_mia_pizzeria_relazioni.repository.IngredientRepository;
 import org.java.exercise.pizzeria.spring_la_mia_pizzeria_relazioni.repository.PizzaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +24,9 @@ public class PizzaController {
 
     @Autowired
     private PizzaRepository repository;
+
+    @Autowired
+    private IngredientRepository ingredientRepository;
 
     // INFO: READ
     @GetMapping
@@ -51,6 +55,7 @@ public class PizzaController {
     @GetMapping("/create")
     public String create(Model model) {
         model.addAttribute("pizza", new Pizza());
+        model.addAttribute("ingredients", ingredientRepository.findAll());
         return "pizzas/create";
     }
 
@@ -58,6 +63,7 @@ public class PizzaController {
     public String store(@Valid @ModelAttribute("pizza") Pizza formPizza,
             BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
+            model.addAttribute("ingredients", ingredientRepository.findAll());
             return "pizzas/create";
         }
 
