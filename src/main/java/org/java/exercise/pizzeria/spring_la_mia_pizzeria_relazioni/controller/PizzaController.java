@@ -75,6 +75,8 @@ public class PizzaController {
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable("id") int id, Model model) {
         model.addAttribute("pizza", repository.findById(id).get());
+        model.addAttribute("ingredients", ingredientRepository.findAll());
+
         return "pizzas/edit";
     }
 
@@ -82,6 +84,7 @@ public class PizzaController {
     public String update(@Valid @ModelAttribute("pizza") Pizza formPizza,
             BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
+            model.addAttribute("ingredients", ingredientRepository.findAll());
             return "pizzas/edit";
         }
 
